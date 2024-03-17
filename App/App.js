@@ -1,20 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View, SafeAreaView, Platform} from 'react-native';
+import Explore from './app/screens/Explore.js';
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Rikhil Kalidindi</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Explore />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
