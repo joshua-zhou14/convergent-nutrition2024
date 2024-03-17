@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image} from '
 
 import colors from '../../config/colors.js';
 
-export default function Explore(props) {
+export default function Explore({navigation}) {
 
     //example tags list for now, will need to connect backend to this later
     const tags = ["Volleyball", "Basketball", "Soccer", "Tennis"];
@@ -60,13 +60,13 @@ export default function Explore(props) {
     ];
     
     const Item = ({name, description, img}) => (
-        <View style={styles.eachCoach}>
+        <View style={styles.eachCoach} onTouchEnd={() =>
+            navigation.navigate('Profile', {profilename: name})}>
             <Image style={styles.image} source={require('../assets/temp2.jpg')}/>
             <View style={styles.coachText}>
                 <Text style={styles.coachTitle}>{name}</Text>
                 <Text style={styles.coachDescription}>{description}</Text>
             </View>
-            
         </View>
     );
 
