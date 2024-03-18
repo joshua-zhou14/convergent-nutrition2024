@@ -1,4 +1,4 @@
-import {Text, SafeAreaView, StyleSheet, Platform} from 'react-native';
+import {Text, SafeAreaView, StyleSheet, Platform, Image} from 'react-native';
 
 import colors from '../../config/colors.js';
 
@@ -6,7 +6,8 @@ export default function Profile({route, navigation}){
     const {profilename} = route.params;
     return (
         <SafeAreaView style={styles.container}>
-            <Text>This is {profilename}'s profile </Text>
+            <Image style={styles.profileimg} source={require('../assets/temp2.jpg')}></Image>
+            <Text style={styles.profileTxtHead}>{profilename}</Text>
         </SafeAreaView>
     );
 }
@@ -17,5 +18,21 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.primary,
         paddingTop: Platform.OS === 'android' ? 40 : 0,
+        alignItems: 'center',
+    },
+    profileimg: {
+        height: 130,
+        width: 130,
+        marginTop: 30,
+        borderRadius: 100,
+        marginBottom: 10,
+    },
+    profileTxtHead: {
+        fontSize: 20,
+        fontWeight: 'bold',
+
+    },
+    profileTxt: {
+        
     },
 });
