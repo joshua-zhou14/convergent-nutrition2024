@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image, Pressable} from 'react-native';
 
 import colors from '../../config/colors.js';
 
@@ -57,73 +57,102 @@ export default function Explore({navigation}) {
             description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
             img: '../assets/temp2.jpg',
         },
+        {
+            id: '9',
+            name: 'Kikhil Ralidindi',
+            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+            img: '../assets/temp2.jpg',
+        },
+        {
+            id: '10',
+            name: 'Kikhil Ralidindi',
+            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+            img: '../assets/temp2.jpg',
+        },
     ];
     
     const Item = ({name, description, img}) => (
-        <View style={styles.eachCoach} onTouchEnd={() =>
-            navigation.navigate('Profile', {profilename: name})}>
-            <Image style={styles.image} source={require('../assets/temp2.jpg')}/>
-            <View style={styles.coachText}>
-                <Text style={styles.coachTitle}>{name}</Text>
-                <Text style={styles.coachDescription}>{description}</Text>
-            </View>
+        <View style={styles.eachCoach}>
+            <Pressable onPress={() => navigation.navigate('Profile', {profilename: name})}>
+                <Image style={styles.image} source={require('../assets/temp2.jpg')}/>
+            </Pressable>
+            <Pressable onPress={() => navigation.navigate('Profile', {profilename: name})}>
+                <View style={styles.coachText}>
+                    <Text style={styles.coachTitle}>{name}</Text>
+                    <Text style={styles.coachDescription}>{description}</Text>
+                </View>
+            </Pressable>
         </View>
     );
 
     return (
-    <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>EXPLORE</Text>
+    <SafeAreaView style={styles.SAVcontainer}>
+        <View style={styles.container}>
 
-        {/* Tags */}
-        <View style={styles.tags}>
-            {tags.map((item, index) => 
-                <View key={index} style={styles.eachTag}> 
-                    <Text style={styles.tagText}>{item}</Text> 
-                </View>)}
-        </View>
-        
-        {/* Filler */}
-        <View style={styles.filler}/>
+            <View style={styles.tagContainer}>
+                <Text style={styles.title}>EXPLORE</Text>
+                {/* Tags */}
+                <View style={styles.tags}>
+                    {tags.map((item, index) => 
+                        <View key={index} style={styles.eachTag}> 
+                            <Text style={styles.tagText}>{item}</Text> 
+                        </View>)}
+                </View>
+            </View>
 
-        {/* Coach List */}
-        <View style={styles.findCoach}>
-            <Text style={styles.findCoachText}>Find coaches near you.</Text>
-        </View>
-        <View style={styles.findCoachListView}>
-            <FlatList 
-                data={coaches}
-                renderItem={({item}) => <Item name={item.name} description={item.description} img={item.img} />}
-                keyExtractor={item => item.id}
-            />
-        </View>
+            {/* Coach List */}
+            <View style={styles.coachContainer}>
+                <View style={styles.findCoach}>
+                    <Text style={styles.findCoachText}>Find coaches near you.</Text>
+                </View>
+                <View style={styles.findCoachListView}>
+                    <FlatList 
+                        data={coaches}
+                        renderItem={({item}) => <Item name={item.name} description={item.description} img={item.img} />}
+                        keyExtractor={item => item.id}
+                    />
+                </View>
+            </View>
 
-        {/* NavBar */}
-        <View style={styles.navbar}><Text>Navigation Bar goes here</Text></View>
+            {/* NavBar */}
+            <View style={styles.navbar}>
+                <Text>Navigation Bar goes here</Text>
+            </View>
+        </View>
     </SafeAreaView>
     );
 }
 
 //StyleSheets for the actual content; sorted alphabetically
 const styles = StyleSheet.create({
+    coachContainer:{
+        flex: 3.5
+    },
+    tagContainer:{
+        flex:1,
+        display: 'flex',
+        marginTop: Platform.OS === 'android' ? 40 : 0,
+
+    },
     coachDescription:{
         fontSize: 12,
     },
     coachText: {
         flexDirection:'column',
-        width: 280,
-        height: 65,
     },
     coachTitle: {
         fontWeight: 'bold',
         fontSize: 16,
         marginBottom:5,
     },
+    SAVcontainer:{
+        flex: 1,
+        backgroundColor: colors.primary,
+    },
     container: {
         flex: 1,
         backgroundColor: colors.primary,
         alignItems: 'center',
-        // justifyContent: 'center',
-        paddingTop: Platform.OS === 'android' ? 80 : 0,
     },
     eachCoach:{
         height:75,
@@ -131,7 +160,6 @@ const styles = StyleSheet.create({
         borderBottomColor: colors.secondary,
         borderBottomWidth: 1,
         flexDirection: 'row',
-        //justifyContent: 'center',
         alignItems: 'center',
     },
     eachTag:{
@@ -144,11 +172,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    filler:{
-        height: 75,
-        width: '100%',
-        //backgroundColor: colors.secondary,
-    },
     findCoach:{
         width: '88%',
         height: 20,
@@ -156,7 +179,7 @@ const styles = StyleSheet.create({
     },
     findCoachListView:{
         width: '88%',
-        height: 425,
+
         //backgroundColor: colors.secondary,
     },
     findCoachText: {
@@ -170,11 +193,10 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     navbar: {
-        height: 50,
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.primary,
         width: '100%',
-        position: 'absolute',
-        bottom: 0,
+        marginTop: 50,
+        height: 40
     },
     tags:{
         height: 100,
@@ -191,8 +213,5 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontWeight: 'bold',
-        position: 'absolute',
-        left:29,
-        top: Platform.OS === 'android' ? 40 : 0,
     },
 });
