@@ -23,6 +23,7 @@ Then just scan the qr code
 
 Backend setup
 
-pip install pipenv
-pipenv shell
-pipenv install flask flask-sqlalchemy psycopg2 python-dotenv flask-cors
+https://dev.to/nagatodev/how-to-connect-flask-to-reactjs-1k8i
+
+to deactivate virtual env:
+deactivate
