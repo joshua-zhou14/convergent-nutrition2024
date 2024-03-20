@@ -19,3 +19,10 @@ run this instead of npm start:
 npx expo start
 
 Then just scan the qr code
+
+
+Backend setup
+
+pip install pipenv
+pipenv shell
+pipenv install flask flask-sqlalchemy psycopg2 python-dotenv flask-cors
