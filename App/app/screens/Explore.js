@@ -102,6 +102,7 @@ export default function Explore({navigation}) {
 
             {/* Coach List */}
             <View style={styles.coachContainer}>
+                <View style={styles.space}/>
                 <View style={styles.findCoach}>
                     <Text style={styles.findCoachText}>Find coaches near you.</Text>
                 </View>
@@ -126,7 +127,8 @@ export default function Explore({navigation}) {
 //StyleSheets for the actual content; sorted alphabetically
 const styles = StyleSheet.create({
     coachContainer:{
-        flex: 3.5
+        marginTop: 20,
+        flex: 3.25
     },
     tagContainer:{
         flex:1,
@@ -196,7 +198,11 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary,
         width: '100%',
         marginTop: 50,
-        height: 40
+        height: 40, 
+        flex: 0.4,
+    },
+    space:{
+        flex:2,
     },
     tags:{
         height: 100,
