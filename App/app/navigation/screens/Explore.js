@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image, Pressable} from 'react-native';
 
-import colors from '../../config/colors.js';
+import colors from '../../../config/colors.js';
+
 
 export default function Explore({navigation}) {
 
@@ -74,7 +75,7 @@ export default function Explore({navigation}) {
     const Item = ({name, description, img}) => (
         <View style={styles.eachCoach}>
             <Pressable onPress={() => navigation.navigate('Profile', {profilename: name})}>
-                <Image style={styles.image} source={require('../assets/temp2.jpg')}/>
+                <Image style={styles.image} source={require('../../assets/temp2.jpg')}/>
             </Pressable>
             <Pressable onPress={() => navigation.navigate('Profile', {profilename: name})}>
                 <View style={styles.coachText}>
