@@ -3,11 +3,18 @@ import {Text, SafeAreaView, StyleSheet, Platform, Image} from 'react-native';
 import colors from '../../../config/colors.js';
 
 export default function Profile({route, navigation}){
-    const {profilename} = route.params;
+    
+
+
+    // Commented out profilename as it was causing issues with navbar
+    // Hard Code some profiles until flask x mongodb is set up
+
+
+    // const {profilename} = route.params;
     return (
         <SafeAreaView style={styles.container}>
             <Image style={styles.profileimg} source={require('../../assets/temp2.jpg')}></Image>
-            <Text style={styles.profileTxtHead}>{profilename}</Text>
+            {/* <Text style={styles.profileTxtHead}>{profilename}</Text> */}
         </SafeAreaView>
     );
 }

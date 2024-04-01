@@ -117,9 +117,9 @@ export default function Explore({navigation}) {
             </View>
 
             {/* NavBar */}
-            <View style={styles.navbar}>
+            {/* <View style={styles.navbar}>
                 <Text>Navigation Bar goes here</Text>
-            </View>
+            </View> */}
         </View>
     </SafeAreaView>
     );
