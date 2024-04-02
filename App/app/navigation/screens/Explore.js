@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image, Pressable} from 'react-native';
 
 import colors from '../../../config/colors.js';
+import MainContainer from './MainContainer.js';
 
 
 export default function Explore({navigation}) {
@@ -74,10 +75,10 @@ export default function Explore({navigation}) {
     
     const Item = ({name, description, img}) => (
         <View style={styles.eachCoach}>
-            <Pressable onPress={() => navigation.navigate('Profile', {profilename: name})}>
+            <Pressable onPress={() => navigation.navigate('ExploreProfile')}>
                 <Image style={styles.image} source={require('../../assets/temp2.jpg')}/>
             </Pressable>
-            <Pressable onPress={() => navigation.navigate('Profile', {profilename: name})}>
+            <Pressable onPress={() => navigation.navigate('ExploreProfile')}>
                 <View style={styles.coachText}>
                     <Text style={styles.coachTitle}>{name}</Text>
                     <Text style={styles.coachDescription}>{description}</Text>
@@ -118,7 +119,6 @@ export default function Explore({navigation}) {
 
             {/* NavBar */}
             <View style={styles.navbar}>
-                <Text>Navigation Bar goes here</Text>
             </View>
         </View>
     </SafeAreaView>
@@ -198,9 +198,7 @@ const styles = StyleSheet.create({
     navbar: {
         backgroundColor: colors.primary,
         width: '100%',
-        marginTop: 50,
         height: 40, 
-        flex: 0.4,
     },
     space:{
         flex:2,
