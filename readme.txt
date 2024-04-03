@@ -38,3 +38,7 @@ expo install react-native-gesture-handler react-native-reanimated react-native-s
 yarn add @react-navigation/stack
 
 yarn add @react-navigation/bottom-tabs
+
+
+Connect to MongoDB
+python -m pip install "pymongo[srv]"
