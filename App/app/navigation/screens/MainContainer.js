@@ -39,7 +39,7 @@ export default function MainContainer() {
             let rn = route.name;
   
             if (rn == Explore) {
-              iconName = focused ? 'home' : 'home-outline';
+              iconName = focused ? 'woman' : 'woman-outline';
             } else if (rn == Profile) {
               iconName = focused ? 'settings' : 'settings-outline';
             }
