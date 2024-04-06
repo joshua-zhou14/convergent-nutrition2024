@@ -75,10 +75,10 @@ export default function Explore({navigation}) {
     
     const Item = ({name, description, img}) => (
         <View style={styles.eachCoach}>
-            <Pressable onPress={() => navigation.navigate('ExploreProfile')}>
+            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})}>
                 <Image style={styles.image} source={require('../../assets/temp2.jpg')}/>
             </Pressable>
-            <Pressable onPress={() => navigation.navigate('ExploreProfile')}>
+            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})}>
                 <View style={styles.coachText}>
                     <Text style={styles.coachTitle}>{name}</Text>
                     <Text style={styles.coachDescription}>{description}</Text>

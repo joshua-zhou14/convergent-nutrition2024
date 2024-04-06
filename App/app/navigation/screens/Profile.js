@@ -15,6 +15,7 @@ export default function Profile({route, navigation}){
         <SafeAreaView style={styles.container}>
             <Image style={styles.profileimg} source={require('../../assets/temp2.jpg')}></Image>
             {/* <Text style={styles.profileTxtHead}>{profilename}</Text> */}
+            
         </SafeAreaView>
     );
 }

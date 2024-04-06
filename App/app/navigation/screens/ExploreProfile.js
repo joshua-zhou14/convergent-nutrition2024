@@ -1,12 +1,21 @@
-import {Text, SafeAreaView, StyleSheet, Platform, Image} from 'react-native';
+import {Text, SafeAreaView, View, Button, StyleSheet, Platform, Image} from 'react-native';
 
 import colors from '../../../config/colors.js';
 
 export default function Profile({route, navigation}){
+    const {profilename} = route.params;
     return (
         <SafeAreaView style={styles.container}>
+            <Button style = {styles.backbutton} 
+                    title="<-"
+                    onPress={() => navigation.goBack()}
+                    />
             <Image style={styles.profileimg} source={require('../../assets/temp2.jpg')}></Image>
-            <Text style={styles.profileTxtHead}></Text>
+            <Text style={styles.profileTxtHead}>{profilename}</Text>
+            <View style={styles.buttons}>
+                <Button title="Sync"></Button>
+                <Button title="Message"></Button>
+            </View>
         </SafeAreaView>
     );
 }
