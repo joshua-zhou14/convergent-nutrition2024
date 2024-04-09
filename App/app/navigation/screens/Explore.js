@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image, Pressable} from 'react-native';
 
 import colors from '../../../config/colors.js';
-import MainContainer from './MainContainer.js';
 
 
 export default function Explore({navigation}) {
@@ -67,6 +66,12 @@ export default function Explore({navigation}) {
         },
         {
             id: '10',
+            name: 'Kikhil Ralidindi',
+            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+            img: '../assets/temp2.jpg',
+        },
+        {
+            id: '11',
             name: 'Kikhil Ralidindi',
             description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
             img: '../assets/temp2.jpg',
