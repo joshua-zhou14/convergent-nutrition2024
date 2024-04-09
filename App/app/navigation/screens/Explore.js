@@ -139,14 +139,17 @@ const styles = StyleSheet.create({
     },
     coachDescription:{
         fontSize: 12,
+        color: colors.whitetext,
     },
     coachText: {
         flexDirection:'column',
+
     },
     coachTitle: {
         fontWeight: 'bold',
         fontSize: 16,
         marginBottom:5,
+        color: colors.whitetext,
     },
     SAVcontainer:{
         flex: 1,
@@ -182,12 +185,11 @@ const styles = StyleSheet.create({
     },
     findCoachListView:{
         width: '88%',
-
-        //backgroundColor: colors.secondary,
     },
     findCoachText: {
         fontWeight: 'bold',
         fontSize: 12,
+        color: colors.whitetext,
     },
     image:{
         height: 55,
@@ -218,5 +220,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontWeight: 'bold',
+        color: colors.whitetext,
     },
 });

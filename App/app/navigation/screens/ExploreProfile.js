@@ -1,4 +1,4 @@
-import {Text, SafeAreaView, View, Button, StyleSheet, Platform, Image} from 'react-native';
+import {Text, SafeAreaView, View, Button, StyleSheet, Platform, Image, Pressable} from 'react-native';
 
 import colors from '../../../config/colors.js';
 
@@ -6,15 +6,24 @@ export default function Profile({route, navigation}){
     const {profilename} = route.params;
     return (
         <SafeAreaView style={styles.container}>
+            <View style={styles.buttonContainer}>
             <Button style = {styles.backbutton} 
                     title="<-"
                     onPress={() => navigation.goBack()}
                     />
+            </View>
             <Image style={styles.profileimg} source={require('../../assets/temp2.jpg')}></Image>
-            <Text style={styles.profileTxtHead}>{profilename}</Text>
+            <Text style={styles.profileTxtHead}>@{profilename}</Text>
+            <View style={styles.bioContainer}>
+                <Text style={styles.bioText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</Text>
+            </View>
             <View style={styles.buttons}>
-                <Button title="Sync"></Button>
-                <Button title="Message"></Button>
+                <Pressable style={styles.buttonStyle}>
+                    <Text>Sync</Text>
+                </Pressable>
+                <Pressable style={styles.buttonStyle}>
+                    <Text>Message</Text>
+                </Pressable>
             </View>
         </SafeAreaView>
     );
@@ -31,16 +40,40 @@ const styles = StyleSheet.create({
     profileimg: {
         height: 130,
         width: 130,
-        marginTop: 30,
+        marginTop: 20,
         borderRadius: 100,
         marginBottom: 10,
     },
     profileTxtHead: {
         fontSize: 20,
         fontWeight: 'bold',
-
+        color: colors.whitetext,
     },
-    profileTxt: {
-        
+    buttonContainer:{
+        position: 'absolute',
+        top: 50, // Adjust this value as needed for spacing from the top
+        left: 20, // Adjust this value as needed for spacing from the left
     },
+    buttons: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '40%',
+        justifyContent: 'space-between'
+    },
+    buttonStyle:{
+        backgroundColor: colors.secondary,
+        padding: 10,
+        paddingLeft: 15,
+        paddingRight: 15,
+        borderRadius: 10,
+    },
+    bioText:{
+        margin: 10,
+        color: colors.whitetext,
+        textAlign: 'center'
+    },
+    bioContainer: {
+        width: '80%',
+    }
 });
