@@ -19,7 +19,7 @@ export default function Explore({navigation}) {
     //     http.get(`/events/get`).then((response) => coaches = response.data).catch(error => console.log("Error: " + error));
     // };
     // useEffect(() => {
-    //     fetch("/events/get").then(
+    //     fetch("http://127.0.0.1:5000/events/get").then(
     //         res=>res.json()
     //     ).then(
     //         // console.log("here"),
@@ -112,7 +112,7 @@ export default function Explore({navigation}) {
             <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})}>
                 <View style={styles.coachText}>
                     <Text style={styles.coachTitle}>{name}</Text>
-                    <Text style={styles.coachDescription}>{description}</Text>
+                    <Text textWrap = "on" style={styles.coachDescription}>{description}</Text>
                 </View>
             </Pressable>
         </View>
@@ -143,7 +143,7 @@ export default function Explore({navigation}) {
                     <FlatList 
                         data={coaches}
                         renderItem={({item}) => <Item name={item.name} description={item.description} img={item.pfp} />}
-                        keyExtractor={item => item._id}
+                        keyExtractor={item => item.id}
                     />
                 </View>
             </View>
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     },
     coachText: {
         flexDirection:'column',
-
+        width:280,
     },
     coachTitle: {
         fontWeight: 'bold',

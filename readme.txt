@@ -25,6 +25,9 @@ Backend setup
 
 https://dev.to/nagatodev/how-to-connect-flask-to-reactjs-1k8i
 
+Activate virtual env;
+Windows: env/Scripts/Activate
+
 to deactivate virtual env:
 deactivate
 

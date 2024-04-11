@@ -51,6 +51,6 @@ def get_all():
         return dumps({'error' : str(e)})
 
 if __name__ == '__main__':
-    app.run()
-    # app.run(host='0.0.0.0', debug = True)
+    # app.run()
+    app.run(host='0.0.0.0', debug = True)
     # print("bruh")
