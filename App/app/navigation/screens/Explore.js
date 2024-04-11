@@ -1,9 +1,35 @@
 import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image, Pressable} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 import colors from '../../../config/colors.js';
 
+// const serverUrl = "http://127.0.0.1:5000";
 
-export default function Explore({navigation}) {
+// const http = axios.create({
+//     baseURL: serverUrl,
+// });
+
+
+export default function Explore({navigation}) { 
+    // let tags;
+    // const [coaches, setCoaches] = useState([{}]);
+    // const fetchData = () => {
+    //     // const baseURL = "http://127.0.0.1:5000";
+    //     http.get(`/events/get`).then((response) => coaches = response.data).catch(error => console.log("Error: " + error));
+    // };
+    // useEffect(() => {
+    //     fetch("/events/get").then(
+    //         res=>res.json()
+    //     ).then(
+    //         // console.log("here"),
+    //         data=>{
+    //             console.log("hi"),
+    //             setCoaches(data),
+    //             console.log(data)
+    //         }
+    //     ).catch(error => console.log("Error: " + error));
+    // }, []);
 
     //example tags list for now, will need to connect backend to this later
     const tags = ["Volleyball", "Basketball", "Soccer", "Tennis"];
@@ -78,7 +104,7 @@ export default function Explore({navigation}) {
         },
     ];
     
-    const Item = ({name, description, img}) => (
+    const Item = ({name, description, pfp}) => (
         <View style={styles.eachCoach}>
             <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})}>
                 <Image style={styles.image} source={require('../../assets/temp2.jpg')}/>
@@ -116,8 +142,8 @@ export default function Explore({navigation}) {
                 <View style={styles.findCoachListView}>
                     <FlatList 
                         data={coaches}
-                        renderItem={({item}) => <Item name={item.name} description={item.description} img={item.img} />}
-                        keyExtractor={item => item.id}
+                        renderItem={({item}) => <Item name={item.name} description={item.description} img={item.pfp} />}
+                        keyExtractor={item => item._id}
                     />
                 </View>
             </View>

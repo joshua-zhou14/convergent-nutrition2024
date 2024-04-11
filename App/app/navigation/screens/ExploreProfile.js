@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, SafeAreaView, View, Button, StyleSheet, Platform, Image, Pressable, FlatList } from 'react-native';
 import colors from '../../../config/colors.js';
 
+
 export default function Profile({ route, navigation }) {
     const { profilename } = route.params;
 

@@ -9,6 +9,7 @@ export default function Profile({route, navigation}){
             <View style={styles.buttonContainer}>
             <Button style = {styles.backbutton} 
                     title="<-"
+                    // change the button to an image
                     onPress={() => navigation.goBack()}
                     />
             </View>
