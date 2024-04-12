@@ -8,11 +8,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 //Screens
 import ExploreScreen from './Explore.js';
 import ProfileScreen from './Profile.js';
-import ExploreProfile from './ExploreProfile.js'
+import ExploreProfile from './ExploreProfile.js';
+import ContentScreen from './Content.js';
+
+import colors from '../../../config/colors.js';
 
 const Explore = 'Explore';
 const Profile = 'Profile';
-const EP = 'ExploreProfile'
+const Media = 'Media';
+const EP = 'ExploreProfile';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -43,8 +47,17 @@ export default function MainContainer() {
             } else if (rn == Profile) {
               iconName = focused ? 'settings' : 'settings-outline';
             }
+            else if(rn == Media){
+              iconName = focused? 'play': 'play-outline';
+            }
   
             return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarStyle: {
+            backgroundColor: colors.primary,
+            height: 60,
+            borderTopWidth: 0.2,
+            paddingBottom: 5,
           },
           headerShown: false
         })}
@@ -55,6 +68,7 @@ export default function MainContainer() {
           component={ProfileScreen}
           initialParams={{ profilename: 'John Doe' }}
         />
+        <Tab.Screen name={Media} component={ContentScreen} />
       </Tab.Navigator>
     );
   }

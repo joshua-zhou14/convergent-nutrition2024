@@ -32,7 +32,7 @@ export default function Explore({navigation}) {
     // }, []);
 
     //example tags list for now, will need to connect backend to this later
-    const tags = ["Volleyball", "Basketball", "Soccer", "Tennis"];
+    const tags = ["Volleyball", "Basketball", "Soccer"];
 
     //example coaches list for now, will need to connect to backend/database
     const coaches = [
@@ -130,7 +130,9 @@ export default function Explore({navigation}) {
                         <View key={index} style={styles.eachTag}> 
                             <Text style={styles.tagText}>{item}</Text> 
                         </View>)}
+                    
                 </View>
+                <Image style={styles.map} source={require('../../assets/map.png')}/>
             </View>
 
             {/* Coach List */}
@@ -148,7 +150,6 @@ export default function Explore({navigation}) {
                 </View>
             </View>
 
-            {/* NavBar */}
             <View style={styles.navbar}>
             </View>
         </View>
@@ -160,10 +161,10 @@ export default function Explore({navigation}) {
 const styles = StyleSheet.create({
     coachContainer:{
         marginTop: 20,
-        flex: 3.25
+        flex: 3.25,
     },
     tagContainer:{
-        flex:1,
+        flex:2,
         display: 'flex',
         marginTop: Platform.OS === 'android' ? 40 : 0,
 
@@ -201,9 +202,9 @@ const styles = StyleSheet.create({
     },
     eachTag:{
         backgroundColor: colors.secondary,
-        width: 100,
-        height: 30,
-        marginBottom: 20,
+        width: 90,
+        height: 25,
+        marginBottom:10,
         marginRight: 5,
         borderRadius: 10,
         justifyContent: 'center',
@@ -228,10 +229,16 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         marginRight: 10,
     },
+    map:{
+        flex:1,
+        width:'100%',
+        maxHeight:200,
+        alignSelf: 'center',
+    },
     navbar: {
         backgroundColor: colors.primary,
         width: '100%',
-        height: 40, 
+        flex:0.15
     },
     space:{
         flex:2,
@@ -243,7 +250,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row', 
         flexWrap: 'wrap',
+        flex:0.5,
         justifyContent: 'space-between',
+    },
+    tagContainer: {
+        width: '90%',
+        flex: 2,
+        paddingTop: 40,
     },
     tagText:{
         fontSize: 14,
