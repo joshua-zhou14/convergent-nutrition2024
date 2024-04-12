@@ -13,13 +13,18 @@ import colors from '../../../config/colors.js';
 
 export default function Explore({navigation}) { 
     // let tags;
-    // const [coaches, setCoaches] = useState([{}]);
+    // const [coaches, setCoaches] = useState([]);
     // const fetchData = () => {
     //     // const baseURL = "http://127.0.0.1:5000";
     //     http.get(`/events/get`).then((response) => coaches = response.data).catch(error => console.log("Error: " + error));
     // };
     // useEffect(() => {
-    //     fetch("http://127.0.0.1:5000/events/get").then(
+    //     var header={
+    //         'Accept':'application/json',
+    //         'Content-Type':'application/json',
+    //     };
+
+    //     fetch("http://127.0.0.1:5000/events/get", {method:'GET', header: header}).then(
     //         res=>res.json()
     //     ).then(
     //         // console.log("here"),
@@ -28,7 +33,8 @@ export default function Explore({navigation}) {
     //             setCoaches(data),
     //             console.log(data)
     //         }
-    //     ).catch(error => console.log("Error: " + error));
+    //     )
+    //     .catch(error => console.log("Error: " + error));
     // }, []);
 
     //example tags list for now, will need to connect backend to this later
