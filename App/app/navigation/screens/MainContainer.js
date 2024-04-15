@@ -10,6 +10,7 @@ import ExploreScreen from './Explore.js';
 import ProfileScreen from './Profile.js';
 import ExploreProfile from './ExploreProfile.js';
 import ContentScreen from './Content.js';
+import MessageScreen from './messaging.js';
 
 import colors from '../../../config/colors.js';
 
@@ -17,6 +18,7 @@ const Explore = 'Explore';
 const Profile = 'Profile';
 const Media = 'Media';
 const EP = 'ExploreProfile';
+const Message = 'Message';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -50,6 +52,10 @@ export default function MainContainer() {
             else if(rn == Media){
               iconName = focused? 'play': 'play-outline';
             }
+            
+             else if (rn == Message) { 
+              iconName = focused ? 'chatbox' : 'chatbox-outline';
+            }
   
             return <Ionicons name={iconName} size={size} color={color} />;
           },
@@ -69,6 +75,7 @@ export default function MainContainer() {
           initialParams={{ profilename: 'John Doe' }}
         />
         <Tab.Screen name={Media} component={ContentScreen} />
+        <Tab.Screen name={Message} component={MessageScreen} />
       </Tab.Navigator>
     );
   }
