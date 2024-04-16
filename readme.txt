@@ -22,8 +22,7 @@ Then just scan the qr code
 
 
 Backend setup
-
-
+https://dev.to/nagatodev/how-to-connect-flask-to-reactjs-1k8i
 
 to deactivate virtual env:
 deactivate
@@ -39,6 +38,8 @@ yarn add @react-navigation/stack
 
 yarn add @react-navigation/bottom-tabs
 
+install video from expo-av
+npx expo install expo-av
 
 Connect to MongoDB
 python -m pip install "pymongo[srv]"

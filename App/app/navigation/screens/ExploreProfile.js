@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, SafeAreaView, View, Button, StyleSheet, Platform, Image, Pressable, FlatList } from 'react-native';
 import colors from '../../../config/colors.js';
+import {Video} from 'expo-av';
 
 
 export default function Profile({ route, navigation }) {
-    const { profilename } = route.params;
+    const { profilename, bio } = route.params;
 
     // Sample data for the FlatList
     const data = [
@@ -29,7 +30,14 @@ export default function Profile({ route, navigation }) {
     // Function to render each item in the FlatList
     const renderItem = ({ item }) => (
         <View style={styles.item}>
-            <Image style={styles.itemImage} source={item.image} />
+            <Pressable onPress={() => navigation.navigate('OneVideoScreen')}>
+                {/* <Image style={styles.itemImage} source={item.image} /> */}
+                <Video 
+                    style={styles.itemImage}
+                    source={require('../../assets/vballspike.mp4')}
+                    shouldPlay={false}
+                />
+            </Pressable>
         </View>
     );
 
@@ -44,7 +52,7 @@ export default function Profile({ route, navigation }) {
             <Image style={styles.profileimg} source={require('../../assets/temp2.jpg')}></Image>
             <Text style={styles.profileTxtHead}>@{profilename}</Text>
             <View style={styles.bioContainer}>
-                <Text style={styles.bioText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</Text>
+                <Text style={styles.bioText}>{bio}</Text>
             </View>
             <View style={styles.buttons}>
                 <Pressable style={styles.buttonStyle}>

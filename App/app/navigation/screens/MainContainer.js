@@ -11,6 +11,7 @@ import ProfileScreen from './Profile.js';
 import ExploreProfile from './ExploreProfile.js';
 import ContentScreen from './Content.js';
 import MessageScreen from './messaging.js';
+import OneVideoScreen from './OneVideoScreen.js';
 
 import colors from '../../../config/colors.js';
 
@@ -30,6 +31,7 @@ export default function MainContainer() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Main" component={MainTabs} />
           <Stack.Screen name={EP} component={ExploreProfile} />
+          <Stack.Screen name="OneVideoScreen" component={OneVideoScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -75,7 +77,7 @@ export default function MainContainer() {
           initialParams={{ profilename: 'John Doe' }}
         />
         <Tab.Screen name={Media} component={ContentScreen} />
-        <Tab.Screen name={Message} component={MessageScreen} />
+        {/* <Tab.Screen name={Message} component={MessageScreen} /> */}
       </Tab.Navigator>
     );
   }

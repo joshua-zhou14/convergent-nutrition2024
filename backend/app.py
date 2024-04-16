@@ -5,11 +5,11 @@ from pymongo.server_api import ServerApi
 from flask_cors import CORS
 from bson.json_util import dumps
 import json
+import certifi
 
 uri = "mongodb+srv://convergent_user:nutrition_sucks123@cluster0.0rcimgy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 # Create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
-# Send a ping to confirm a successful connection
+client = MongoClient(uri, server_api=ServerApi('1'), tlsCAFile=certifi.where())
 try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")

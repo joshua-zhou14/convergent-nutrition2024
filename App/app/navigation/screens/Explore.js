@@ -4,118 +4,118 @@ import axios from "axios";
 
 import colors from '../../../config/colors.js';
 
-// const serverUrl = "http://127.0.0.1:5000";
+const serverUrl = "http://127.0.0.1:5000";
 
-// const http = axios.create({
-//     baseURL: serverUrl,
-// });
+const http = axios.create({
+    baseURL: serverUrl,
+});
 
 
 export default function Explore({navigation}) { 
     // let tags;
-    // const [coaches, setCoaches] = useState([]);
-    // const fetchData = () => {
-    //     // const baseURL = "http://127.0.0.1:5000";
-    //     http.get(`/events/get`).then((response) => coaches = response.data).catch(error => console.log("Error: " + error));
-    // };
-    // useEffect(() => {
-    //     var header={
-    //         'Accept':'application/json',
-    //         'Content-Type':'application/json',
-    //     };
+    const [coaches, setCoaches] = useState([]);
+    const fetchData = () => {
+        var header={
+            'Accept':'application/json',
+            'Content-Type':'application/json',
+        };
 
-    //     fetch("http://127.0.0.1:5000/events/get", {method:'GET', header: header}).then(
-    //         res=>res.json()
-    //     ).then(
-    //         // console.log("here"),
-    //         data=>{
-    //             console.log("hi"),
-    //             setCoaches(data),
-    //             console.log(data)
-    //         }
-    //     )
-    //     .catch(error => console.log("Error: " + error));
-    // }, []);
+        fetch("http://127.0.0.1:5000/events/get", {method:'GET', header: header}).then(
+            res=>res.json()
+        ).then(
+            // console.log("here"),
+            data=>{
+                console.log("hi"),
+                setCoaches(data),
+                console.log(data)
+            }
+        )
+        .catch(error => console.log("Error: " + error));
+    }
+        
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     //example tags list for now, will need to connect backend to this later
-    const tags = ["Volleyball", "Basketball", "Soccer"];
+    const tags = ["All", "Volleyball", "Basketball", "Soccer"];
 
-    //example coaches list for now, will need to connect to backend/database
-    const coaches = [
-        {
-            id: '1',
-            name: 'Rikhil Kalidindi',
-            description: 'I have no experience',
-            img: '../assets/temp1.jpg',
-        },
-        {
-            id: '2',
-            name: 'Rikky Dindikal',
-            description: 'I hate Rikhil Kalidindi',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '3',
-            name: 'Dikhil Ralidindi',
-            description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
-            img: '../assets/temp1.jpg',
-        },
-        {
-            id: '4',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '5',
-            name: 'Rikhil Kalidindi',
-            description: 'I have no experience',
-            img: '../assets/temp1.jpg',
-        },
-        {
-            id: '6',
-            name: 'Rikky Dindikal',
-            description: 'I hate Rikhil Kalidindi',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '7',
-            name: 'Dikhil Ralidindi',
-            description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
-            img: '../assets/temp1.jpg',
-        },
-        {
-            id: '8',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '9',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '10',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '11',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
-    ];
+    // //example coaches list for now, will need to connect to backend/database
+    // const coaches = [
+    //     {
+    //         id: '1',
+    //         name: 'Rikhil Kalidindi',
+    //         description: 'I have no experience',
+    //         img: '../assets/temp1.jpg',
+    //     },
+    //     {
+    //         id: '2',
+    //         name: 'Rikky Dindikal',
+    //         description: 'I hate Rikhil Kalidindi',
+    //         img: '../assets/temp2.jpg',
+    //     },
+    //     {
+    //         id: '3',
+    //         name: 'Dikhil Ralidindi',
+    //         description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
+    //         img: '../assets/temp1.jpg',
+    //     },
+    //     {
+    //         id: '4',
+    //         name: 'Kikhil Ralidindi',
+    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+    //         img: '../assets/temp2.jpg',
+    //     },
+    //     {
+    //         id: '5',
+    //         name: 'Rikhil Kalidindi',
+    //         description: 'I have no experience',
+    //         img: '../assets/temp1.jpg',
+    //     },
+    //     {
+    //         id: '6',
+    //         name: 'Rikky Dindikal',
+    //         description: 'I hate Rikhil Kalidindi',
+    //         img: '../assets/temp2.jpg',
+    //     },
+    //     {
+    //         id: '7',
+    //         name: 'Dikhil Ralidindi',
+    //         description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
+    //         img: '../assets/temp1.jpg',
+    //     },
+    //     {
+    //         id: '8',
+    //         name: 'Kikhil Ralidindi',
+    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+    //         img: '../assets/temp2.jpg',
+    //     },
+    //     {
+    //         id: '9',
+    //         name: 'Kikhil Ralidindi',
+    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+    //         img: '../assets/temp2.jpg',
+    //     },
+    //     {
+    //         id: '10',
+    //         name: 'Kikhil Ralidindi',
+    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+    //         img: '../assets/temp2.jpg',
+    //     },
+    //     {
+    //         id: '11',
+    //         name: 'Kikhil Ralidindi',
+    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+    //         img: '../assets/temp2.jpg',
+    //     },
+    // ];
     
-    const Item = ({name, description, pfp}) => (
+    const Item = ({name, description, bio}) => (
         <View style={styles.eachCoach}>
             <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})}>
                 <Image style={styles.image} source={require('../../assets/temp2.jpg')}/>
             </Pressable>
-            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})}>
+            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name, bio: bio})}>
                 <View style={styles.coachText}>
                     <Text style={styles.coachTitle}>{name}</Text>
                     <Text textWrap = "on" style={styles.coachDescription}>{description}</Text>
@@ -124,6 +124,24 @@ export default function Explore({navigation}) {
         </View>
     );
 
+    const sortSport = (tag) => {
+        var header={
+            'Accept':'application/json',
+            'Content-Type':'application/json',
+        };
+
+        fetch("http://127.0.0.1:5000/events/get", {method:'GET', header: header}).then(
+            res=>res.json()
+        ).then(
+            // console.log("here"),
+            data=>{
+                const filteredCoaches = tag === "All" ? data : data.filter(coach => coach.tags && coach.tags.includes(tag));
+                setCoaches(filteredCoaches);
+            }
+        )
+        .catch(error => console.log("Error: " + error));
+    }
+ 
     return (
     <SafeAreaView style={styles.SAVcontainer}>
         <View style={styles.container}>
@@ -134,7 +152,9 @@ export default function Explore({navigation}) {
                 <View style={styles.tags}>
                     {tags.map((item, index) => 
                         <View key={index} style={styles.eachTag}> 
-                            <Text style={styles.tagText}>{item}</Text> 
+                            <Pressable onPress={() => sortSport(item)}>
+                                <Text style={styles.tagText}>{item}</Text> 
+                            </Pressable>
                         </View>)}
                     
                 </View>
@@ -150,7 +170,7 @@ export default function Explore({navigation}) {
                 <View style={styles.findCoachListView}>
                     <FlatList 
                         data={coaches}
-                        renderItem={({item}) => <Item name={item.name} description={item.description} img={item.pfp} />}
+                        renderItem={({item}) => <Item name={item.name} description={item.description} img={item.pfp} bio={item.bio} />}
                         keyExtractor={item => item.id}
                     />
                 </View>
@@ -167,10 +187,10 @@ export default function Explore({navigation}) {
 const styles = StyleSheet.create({
     coachContainer:{
         marginTop: 20,
-        flex: 3.25,
+        flex: 2.25,
     },
     tagContainer:{
-        flex:2,
+        flex:3,
         display: 'flex',
         marginTop: Platform.OS === 'android' ? 40 : 0,
 
