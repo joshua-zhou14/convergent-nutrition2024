@@ -18,7 +18,6 @@ import colors from '../../../config/colors.js';
 const Explore = 'Explore';
 const Profile = 'Profile';
 const Media = 'Media';
-const EP = 'ExploreProfile';
 const Message = 'Message';
 
 const Tab = createBottomTabNavigator();
@@ -30,7 +29,7 @@ export default function MainContainer() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Main" component={MainTabs} />
-          <Stack.Screen name={EP} component={ExploreProfile} />
+          <Stack.Screen name="ExploreProfile" component={ExploreProfile} />
           <Stack.Screen name="OneVideoScreen" component={OneVideoScreen} />
         </Stack.Navigator>
       </NavigationContainer>

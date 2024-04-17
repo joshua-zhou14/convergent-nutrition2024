@@ -158,7 +158,9 @@ export default function Explore({navigation}) {
                         </View>)}
                     
                 </View>
-                <Image style={styles.map} source={require('../../assets/map.png')}/>
+                <View style={styles.mapCard}>
+                    <Image style={styles.map} source={require('../../assets/map.png')}/>
+                </View>
             </View>
 
             {/* Coach List */}
@@ -185,12 +187,21 @@ export default function Explore({navigation}) {
 
 //StyleSheets for the actual content; sorted alphabetically
 const styles = StyleSheet.create({
+    mapCard: {
+        backgroundColor: 'white', // Card background color
+        borderRadius: 10, // Card border radius
+        shadowColor: '#000', // Shadow color
+        shadowOpacity: 0.3, // Shadow opacity (0 to 1)
+        shadowRadius: 4, // Shadow radius
+        shadowOffset: { width: 0, height: 2 }, // Shadow offset
+        elevation: 5, // Android elevation for shadow effect
+    },
     coachContainer:{
         marginTop: 20,
-        flex: 2.25,
+        // flex: 2.25,
     },
     tagContainer:{
-        flex:3,
+        // flex:3,
         display: 'flex',
         marginTop: Platform.OS === 'android' ? 40 : 0,
 
@@ -214,7 +225,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary,
     },
     container: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: colors.primary,
         alignItems: 'center',
     },
@@ -256,18 +267,17 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     map:{
-        flex:1,
+        // flex:1,
         width:'100%',
-        maxHeight:200,
-        alignSelf: 'center',
+        height: 140,
     },
     navbar: {
         backgroundColor: colors.primary,
         width: '100%',
-        flex:0.15
+        // flex:0.15
     },
     space:{
-        flex:2,
+        // flex:2,
     },
     tags:{
         height: 100,
@@ -276,12 +286,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row', 
         flexWrap: 'wrap',
-        flex:0.5,
+        // flex:0.5,
         justifyContent: 'space-between',
     },
     tagContainer: {
         width: '90%',
-        flex: 2,
+        // flex: 2,
         paddingTop: 40,
     },
     tagText:{

@@ -1,29 +1,26 @@
 import React from 'react';
-import { Text, SafeAreaView, View, Button, StyleSheet, Platform, Image, Pressable, FlatList } from 'react-native';
+import { Text, SafeAreaView, View, Button, StyleSheet, Platform, Image, Pressable, FlatList, Dimensions } from 'react-native';
 import colors from '../../../config/colors.js';
-import {Video} from 'expo-av';
+import { Video } from 'expo-av';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
+
+const windowWidth = Dimensions.get('window').width;
 
 export default function Profile({ route, navigation }) {
     const { profilename, bio } = route.params;
 
     // Sample data for the FlatList
     const data = [
-        { id: '1', name: 'Item 1', image: require('../../assets/black_image.jpg') },
-        { id: '2', name: 'Item 2', image: require('../../assets/black_image.jpg') },
-        { id: '3', name: 'Item 3', image: require('../../assets/black_image.jpg') },
-        { id: '4', name: 'Item 4', image: require('../../assets/black_image.jpg') },
-        { id: '5', name: 'Item 5', image: require('../../assets/black_image.jpg') },
-        { id: '6', name: 'Item 6', image: require('../../assets/black_image.jpg') },
-        { id: '7', name: 'Item 7', image: require('../../assets/black_image.jpg') },
-        { id: '8', name: 'Item 8', image: require('../../assets/black_image.jpg') },
-        { id: '9', name: 'Item 9', image: require('../../assets/black_image.jpg') },
-        { id: '10', name: 'Item 10', image: require('../../assets/black_image.jpg') },
-        { id: '11', name: 'Item 11', image: require('../../assets/black_image.jpg') },
-        { id: '12', name: 'Item 12', image: require('../../assets/black_image.jpg') },
-        { id: '13', name: 'Item 13', image: require('../../assets/black_image.jpg') },
-        { id: '14', name: 'Item 14', image: require('../../assets/black_image.jpg') },
-        { id: '15', name: 'Item 15', image: require('../../assets/temp2.jpg') },
+        { id: '1', name: 'Item 1', video: require('../../assets/vballspike.mp4') },
+        { id: '2', name: 'Item 2', video: require('../../assets/vballspike.mp4') },
+        { id: '3', name: 'Item 3', video: require('../../assets/vballspike.mp4') },
+        { id: '4', name: 'Item 4', video: require('../../assets/vballspike.mp4') },
+        { id: '5', name: 'Item 5', video: require('../../assets/vballspike.mp4') },
+        { id: '6', name: 'Item 6', video: require('../../assets/vballspike.mp4') },
+        { id: '7', name: 'Item 7', video: require('../../assets/vballspike.mp4') },
+        { id: '8', name: 'Item 8', video: require('../../assets/vballspike.mp4') },
+        { id: '9', name: 'Item 9', video: require('../../assets/vballspike.mp4') },
         // Add more items as needed
     ];
 
@@ -31,10 +28,9 @@ export default function Profile({ route, navigation }) {
     const renderItem = ({ item }) => (
         <View style={styles.item}>
             <Pressable onPress={() => navigation.navigate('OneVideoScreen')}>
-                {/* <Image style={styles.itemImage} source={item.image} /> */}
-                <Video 
-                    style={styles.itemImage}
-                    source={require('../../assets/vballspike.mp4')}
+                <Video
+                    style={styles.itemVideo}
+                    source={item.video}
                     shouldPlay={false}
                 />
             </Pressable>
@@ -44,10 +40,9 @@ export default function Profile({ route, navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.buttonContainer}>
-                <Button style={styles.backbutton}
-                    title="<-"
-                    onPress={() => navigation.goBack()}
-                />
+                <Pressable onPress={() => navigation.goBack()}>
+                    <Ionicons name="arrow-back-outline" size={30} color='white'></Ionicons>
+                </Pressable>   
             </View>
             <Image style={styles.profileimg} source={require('../../assets/temp2.jpg')}></Image>
             <Text style={styles.profileTxtHead}>@{profilename}</Text>
@@ -96,15 +91,16 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         position: 'absolute',
-        top: 50, // Adjust this value as needed for spacing from the top
-        left: 20, // Adjust this value as needed for spacing from the left
+        top: 50,
+        left: 20,
     },
     buttons: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         width: '40%',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginBottom: 15
     },
     buttonStyle: {
         backgroundColor: colors.secondary,
@@ -129,15 +125,14 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     flatListContainer: {
-        paddingTop: 20,
         paddingHorizontal: 10,
     },
-    itemImage: {
-        width: 120,
-        height: 140,
+    itemVideo: {
+        width: (windowWidth - 40) / 3.2, // Adjust this calculation as needed
+        height: (windowWidth - 40) / 3.1 * (16 / 9), // Assuming a 16:9 aspect ratio, adjust as needed
     },
     item: {
-        padding: 1,
+        paddingHorizontal: 2,
         alignItems: 'center',
     },
 });
