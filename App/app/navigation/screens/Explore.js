@@ -167,7 +167,7 @@ export default function Explore({navigation}) {
             <View style={styles.coachContainer}>
                 <View style={styles.space}/>
                 <View style={styles.findCoach}>
-                    <Text style={styles.findCoachText}>Find coaches near you.</Text>
+                    <Text style={styles.findCoachText}>Find coaches near you:</Text>
                 </View>
                 <View style={styles.findCoachListView}>
                     <FlatList 

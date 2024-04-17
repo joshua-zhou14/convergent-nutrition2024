@@ -46,7 +46,7 @@ export default function MainContainer() {
             let rn = route.name;
   
             if (rn == Explore) {
-              iconName = focused ? 'woman' : 'woman-outline';
+              iconName = focused ? 'home' : 'home-outline';
             } else if (rn == Profile) {
               iconName = focused ? 'settings' : 'settings-outline';
             }
@@ -62,9 +62,9 @@ export default function MainContainer() {
           },
           tabBarStyle: {
             backgroundColor: colors.primary,
-            height: 60,
+            height: 70,
             borderTopWidth: 0.2,
-            paddingBottom: 5,
+            paddingBottom: 20,
           },
           headerShown: false
         })}
