@@ -112,7 +112,7 @@ export default function Explore({navigation}) {
     
     const Item = ({name, description, bio}) => (
         <View style={styles.eachCoach}>
-            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})}>
+            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})} style={{borderRightColor: 'black', borderRightWidth: 2}}>
                 <Image style={styles.image} source={require('../../assets/temp2.jpg')}/>
             </Pressable>
             <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name, bio: bio})}>
@@ -174,6 +174,7 @@ export default function Explore({navigation}) {
                         data={coaches}
                         renderItem={({item}) => <Item name={item.name} description={item.description} img={item.pfp} bio={item.bio} />}
                         keyExtractor={item => item.id}
+                        style={styles.flatlist}
                     />
                 </View>
             </View>
@@ -195,47 +196,53 @@ const styles = StyleSheet.create({
         shadowRadius: 4, // Shadow radius
         shadowOffset: { width: 0, height: 2 }, // Shadow offset
         elevation: 5, // Android elevation for shadow effect
+        flex: 3,
+        alignItems: 'center',
+        justifyContent:'center'
     },
     coachContainer:{
         marginTop: 20,
-        // flex: 2.25,
+        flex: 3,
     },
     tagContainer:{
-        // flex:3,
+        flex:3,
         display: 'flex',
         marginTop: Platform.OS === 'android' ? 40 : 0,
 
     },
     coachDescription:{
         fontSize: 12,
-        color: colors.whitetext,
+        color: 'black',
     },
     coachText: {
         flexDirection:'column',
         width:280,
+        paddingHorizontal: 8
     },
     coachTitle: {
         fontWeight: 'bold',
         fontSize: 16,
         marginBottom:5,
-        color: colors.whitetext,
+        color: 'black',
     },
     SAVcontainer:{
         flex: 1,
         backgroundColor: colors.primary,
     },
     container: {
-        // flex: 1,
+        flex: 1,
         backgroundColor: colors.primary,
         alignItems: 'center',
     },
     eachCoach:{
         height:75,
         width: '100%',
-        borderBottomColor: colors.secondary,
-        borderBottomWidth: 1,
         flexDirection: 'row',
         alignItems: 'center',
+        backgroundColor: colors.secondary,
+        paddingLeft: 5,
+        marginBottom: 8,
+        borderRadius: 10
     },
     eachTag:{
         backgroundColor: colors.secondary,
@@ -255,11 +262,6 @@ const styles = StyleSheet.create({
     findCoachListView:{
         width: '88%',
     },
-    findCoachText: {
-        fontWeight: 'bold',
-        fontSize: 12,
-        color: colors.whitetext,
-    },
     image:{
         height: 55,
         width: 55,
@@ -267,17 +269,16 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     map:{
-        // flex:1,
-        width:'100%',
-        height: 140,
+        width:'95%',
+        height: '95%',
     },
     navbar: {
         backgroundColor: colors.primary,
         width: '100%',
-        // flex:0.15
+        flex:0.1
     },
     space:{
-        // flex:2,
+        flex:2,
     },
     tags:{
         height: 100,
@@ -286,12 +287,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row', 
         flexWrap: 'wrap',
-        // flex:0.5,
         justifyContent: 'space-between',
     },
     tagContainer: {
         width: '90%',
-        // flex: 2,
+        flex: 2,
         paddingTop: 40,
     },
     tagText:{
@@ -302,4 +302,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: colors.whitetext,
     },
+    flatlist: {
+        height: 400
+    },
+    findCoachText: {
+        color: colors.whitetext
+    }
 });
