@@ -10,7 +10,7 @@ import ExploreScreen from './Explore.js';
 import ProfileScreen from './Profile.js';
 import ExploreProfile from './ExploreProfile.js';
 import ContentScreen from './Content.js';
-import MessageScreen from './messaging.js';
+import MessageScreen from './MessageScreen.js';
 import OneVideoScreen from './OneVideoScreen.js';
 
 import colors from '../../../config/colors.js';
@@ -31,6 +31,7 @@ export default function MainContainer() {
           <Stack.Screen name="Main" component={MainTabs} />
           <Stack.Screen name="ExploreProfile" component={ExploreProfile} />
           <Stack.Screen name="OneVideoScreen" component={OneVideoScreen} />
+          <Stack.Screen name="messaging" component={MessageScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
     );
