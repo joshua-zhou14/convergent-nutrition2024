@@ -147,7 +147,6 @@ export default function Explore({navigation}) {
         <View style={styles.container}>
 
             <View style={styles.tagContainer}>
-                <Text style={styles.title}>EXPLORE</Text>
                 {/* Tags */}
                 <View style={styles.tags}>
                     {tags.map((item, index) => 
@@ -239,7 +238,7 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.whitetext,
         paddingLeft: 5,
         marginBottom: 8,
         borderRadius: 10
