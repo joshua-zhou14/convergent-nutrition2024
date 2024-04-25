@@ -12,6 +12,7 @@ import ExploreProfile from './ExploreProfile.js';
 import ContentScreen from './Content.js';
 import MessageScreen from './MessageScreen.js';
 import OneVideoScreen from './OneVideoScreen.js';
+import Schedule from './Schedule.js';
 
 import colors from '../../../config/colors.js';
 
@@ -32,6 +33,7 @@ export default function MainContainer() {
           <Stack.Screen name="ExploreProfile" component={ExploreProfile} />
           <Stack.Screen name="OneVideoScreen" component={OneVideoScreen} />
           <Stack.Screen name="messaging" component={MessageScreen}/>
+          <Stack.Screen name="Schedule" component={Schedule}/>
         </Stack.Navigator>
       </NavigationContainer>
     );

@@ -10,6 +10,7 @@ const windowWidth = Dimensions.get('window').width;
 export default function Profile({ route, navigation }) {
     const { profilename, bio } = route.params;
     const [buttonText, setButtonText] = useState("Sync");
+    const [buttonColor, setButtonColor] = useState("#7CA0FF");
     // Sample data for the FlatList
     const data = [
         { id: '1', name: 'Item 1', video: require('../../assets/vballspike.mp4') },
@@ -37,6 +38,18 @@ export default function Profile({ route, navigation }) {
         </View>
     );
 
+    const buttonPress = () =>{
+        if(buttonText == "Sync"){
+            setButtonText("Synced");
+            setButtonColor("#3069FF");
+            // setButtonColor("#7CA0FF");
+        }
+        else{
+            setButtonText("Sync");
+            setButtonColor("#7CA0FF");
+        }
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.buttonContainer}>
@@ -50,13 +63,13 @@ export default function Profile({ route, navigation }) {
                 <Text style={styles.bioText}>{bio}</Text>
             </View>
             <View style={styles.buttons}>
-                <Pressable style={styles.buttonStyle} onPress={() => buttonText == "Sync" ? setButtonText("Synced"): setButtonText("Sync")}>
-                    <Text style={{textAlign: 'center'}}>{buttonText}</Text>
+                <Pressable style={{backgroundColor: buttonColor, padding: 10, marginRight: 7, height: 40, width: 100, borderRadius: 10,}} onPress={buttonPress}>
+                        <Text style={{textAlign: 'center'}}>{buttonText}</Text>
                 </Pressable>
-                <Pressable style={styles.buttonStyle}>
+                <Pressable style={styles.buttonStyle} onPress={() => navigation.navigate('messaging')}>
                     <Text style={{textAlign: 'center'}}>Message</Text>
                 </Pressable>
-                <Pressable style={styles.buttonStyle}>
+                <Pressable style={styles.buttonStyle} onPress={() => navigation.navigate('Schedule', {name: profilename})}>
                     <Text style={{textAlign: 'center'}}>Schedule</Text>
                 </Pressable>
             </View>
@@ -107,9 +120,10 @@ const styles = StyleSheet.create({
     },
     buttonStyle: {
         backgroundColor: colors.secondary,
-        padding: 10,
+        
         // paddingLeft: 15,
         // paddingRight: 15,
+        padding: 10,
         marginRight: 7,
         height: 40,
         width: 100,
