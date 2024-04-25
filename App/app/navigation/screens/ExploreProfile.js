@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, SafeAreaView, View, Button, StyleSheet, Platform, Image, Pressable, FlatList, Dimensions } from 'react-native';
 import colors from '../../../config/colors.js';
 import { Video } from 'expo-av';
@@ -9,7 +9,7 @@ const windowWidth = Dimensions.get('window').width;
 
 export default function Profile({ route, navigation }) {
     const { profilename, bio } = route.params;
-
+    const [buttonText, setButtonText] = useState("Sync");
     // Sample data for the FlatList
     const data = [
         { id: '1', name: 'Item 1', video: require('../../assets/vballspike.mp4') },
@@ -50,11 +50,14 @@ export default function Profile({ route, navigation }) {
                 <Text style={styles.bioText}>{bio}</Text>
             </View>
             <View style={styles.buttons}>
-                <Pressable style={styles.buttonStyle}>
-                    <Text>Sync</Text>
+                <Pressable style={styles.buttonStyle} onPress={() => buttonText == "Sync" ? setButtonText("Synced"): setButtonText("Sync")}>
+                    <Text style={{textAlign: 'center'}}>{buttonText}</Text>
                 </Pressable>
                 <Pressable style={styles.buttonStyle}>
-                    <Text>Message</Text>
+                    <Text style={{textAlign: 'center'}}>Message</Text>
+                </Pressable>
+                <Pressable style={styles.buttonStyle}>
+                    <Text style={{textAlign: 'center'}}>Schedule</Text>
                 </Pressable>
             </View>
             {/* FlatList with rows of 3 */}
@@ -98,15 +101,18 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        width: '40%',
-        justifyContent: 'space-between',
+        width: '100%',
+        justifyContent: 'center',
         marginBottom: 15
     },
     buttonStyle: {
         backgroundColor: colors.secondary,
         padding: 10,
-        paddingLeft: 15,
-        paddingRight: 15,
+        // paddingLeft: 15,
+        // paddingRight: 15,
+        marginRight: 7,
+        height: 40,
+        width: 100,
         borderRadius: 10,
     },
     bioText: {

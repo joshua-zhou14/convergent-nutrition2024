@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image, Pressable} from 'react-native';
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import colors from '../../../config/colors.js';
 
@@ -13,102 +14,102 @@ const http = axios.create({
 
 export default function Explore({navigation}) { 
     // let tags;
-    const [coaches, setCoaches] = useState([]);
-    const fetchData = () => {
-        var header={
-            'Accept':'application/json',
-            'Content-Type':'application/json',
-        };
+    // const [coaches, setCoaches] = useState([]);
+    // const fetchData = () => {
+    //     var header={
+    //         'Accept':'application/json',
+    //         'Content-Type':'application/json',
+    //     };
 
-        fetch("http://127.0.0.1:5000/events/get", {method:'GET', header: header}).then(
-            res=>res.json()
-        ).then(
-            // console.log("here"),
-            data=>{
-                console.log("hi"),
-                setCoaches(data),
-                console.log(data)
-            }
-        )
-        .catch(error => console.log("Error: " + error));
-    }
+    //     fetch("http://127.0.0.1:5000/events/get", {method:'GET', header: header}).then(
+    //         res=>res.json()
+    //     ).then(
+    //         // console.log("here"),
+    //         data=>{
+    //             console.log("hi"),
+    //             setCoaches(data),
+    //             console.log(data)
+    //         }
+    //     )
+    //     .catch(error => console.log("Error: " + error));
+    // }
         
-    useEffect(() => {
-        fetchData();
-    }, []);
+    // useEffect(() => {
+    //     fetchData();
+    // }, []);
 
     //example tags list for now, will need to connect backend to this later
     const tags = ["All", "Volleyball", "Basketball", "Soccer"];
 
-    // //example coaches list for now, will need to connect to backend/database
-    // const coaches = [
-    //     {
-    //         id: '1',
-    //         name: 'Rikhil Kalidindi',
-    //         description: 'I have no experience',
-    //         img: '../assets/temp1.jpg',
-    //     },
-    //     {
-    //         id: '2',
-    //         name: 'Rikky Dindikal',
-    //         description: 'I hate Rikhil Kalidindi',
-    //         img: '../assets/temp2.jpg',
-    //     },
-    //     {
-    //         id: '3',
-    //         name: 'Dikhil Ralidindi',
-    //         description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
-    //         img: '../assets/temp1.jpg',
-    //     },
-    //     {
-    //         id: '4',
-    //         name: 'Kikhil Ralidindi',
-    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-    //         img: '../assets/temp2.jpg',
-    //     },
-    //     {
-    //         id: '5',
-    //         name: 'Rikhil Kalidindi',
-    //         description: 'I have no experience',
-    //         img: '../assets/temp1.jpg',
-    //     },
-    //     {
-    //         id: '6',
-    //         name: 'Rikky Dindikal',
-    //         description: 'I hate Rikhil Kalidindi',
-    //         img: '../assets/temp2.jpg',
-    //     },
-    //     {
-    //         id: '7',
-    //         name: 'Dikhil Ralidindi',
-    //         description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
-    //         img: '../assets/temp1.jpg',
-    //     },
-    //     {
-    //         id: '8',
-    //         name: 'Kikhil Ralidindi',
-    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-    //         img: '../assets/temp2.jpg',
-    //     },
-    //     {
-    //         id: '9',
-    //         name: 'Kikhil Ralidindi',
-    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-    //         img: '../assets/temp2.jpg',
-    //     },
-    //     {
-    //         id: '10',
-    //         name: 'Kikhil Ralidindi',
-    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-    //         img: '../assets/temp2.jpg',
-    //     },
-    //     {
-    //         id: '11',
-    //         name: 'Kikhil Ralidindi',
-    //         description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-    //         img: '../assets/temp2.jpg',
-    //     },
-    // ];
+    //example coaches list for now, will need to connect to backend/database
+    const coaches = [
+        {
+            id: '1',
+            name: 'Rikhil Kalidindi',
+            description: 'I have no experience',
+            img: '../assets/temp1.jpg',
+        },
+        {
+            id: '2',
+            name: 'Rikky Dindikal',
+            description: 'I hate Rikhil Kalidindi',
+            img: '../assets/temp2.jpg',
+        },
+        {
+            id: '3',
+            name: 'Dikhil Ralidindi',
+            description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
+            img: '../assets/temp1.jpg',
+        },
+        {
+            id: '4',
+            name: 'Kikhil Ralidindi',
+            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+            img: '../assets/temp2.jpg',
+        },
+        {
+            id: '5',
+            name: 'Rikhil Kalidindi',
+            description: 'I have no experience',
+            img: '../assets/temp1.jpg',
+        },
+        {
+            id: '6',
+            name: 'Rikky Dindikal',
+            description: 'I hate Rikhil Kalidindi',
+            img: '../assets/temp2.jpg',
+        },
+        {
+            id: '7',
+            name: 'Dikhil Ralidindi',
+            description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
+            img: '../assets/temp1.jpg',
+        },
+        {
+            id: '8',
+            name: 'Kikhil Ralidindi',
+            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+            img: '../assets/temp2.jpg',
+        },
+        {
+            id: '9',
+            name: 'Kikhil Ralidindi',
+            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+            img: '../assets/temp2.jpg',
+        },
+        {
+            id: '10',
+            name: 'Kikhil Ralidindi',
+            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+            img: '../assets/temp2.jpg',
+        },
+        {
+            id: '11',
+            name: 'Kikhil Ralidindi',
+            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
+            img: '../assets/temp2.jpg',
+        },
+    ];
     
     const Item = ({name, description, bio}) => (
         <View style={styles.eachCoach}>
@@ -145,6 +146,11 @@ export default function Explore({navigation}) {
     return (
     <SafeAreaView style={styles.SAVcontainer}>
         <View style={styles.container}>
+
+            <View style={styles.header}>
+                <Image style={styles.headerimg} source={require('../../assets/logo.png')}/>
+                <Ionicons style={styles.msg} name="chatbubble-ellipses-outline" size={30} color='white'></Ionicons>
+            </View>
 
             <View style={styles.tagContainer}>
                 {/* Tags */}
@@ -245,8 +251,8 @@ const styles = StyleSheet.create({
     },
     eachTag:{
         backgroundColor: colors.secondary,
-        width: 90,
-        height: 25,
+        width: 70,
+        height: 22,
         marginBottom:10,
         marginRight: 5,
         borderRadius: 10,
@@ -261,6 +267,24 @@ const styles = StyleSheet.create({
     findCoachListView:{
         width: '88%',
     },
+    header:{
+        // marginTop: 20,
+        flex: 0.45,
+        flexDirection: 'row',
+        // alignItems: 'center',
+        width: '100%',
+        // borderBottomColor: 'gray',
+        // borderBottomWidth: 0.5,
+        // borderBottomWidth: 0.2,
+        // borderBottomColor: 'light-gray',
+    },
+    headerimg:{
+        marginTop: 5,
+        maxHeight: '90%',
+        objectFit: 'scale-down',
+        marginRight: 170,
+        marginBottom:5,
+    },
     image:{
         height: 55,
         width: 55,
@@ -269,18 +293,22 @@ const styles = StyleSheet.create({
     },
     map:{
         width:'95%',
-        height: '95%',
+        height:'95%',
+    },
+    msg:{
+        height: '100%',
+        marginTop: 20,
     },
     navbar: {
         backgroundColor: colors.primary,
         width: '100%',
-        flex:0.1
+        flex:0.1,
     },
     space:{
         flex:2,
     },
     tags:{
-        height: 100,
+        height: 80,
         //backgroundColor: 'blue',
         width: "85%",
         alignItems: 'center',
@@ -291,10 +319,10 @@ const styles = StyleSheet.create({
     tagContainer: {
         width: '90%',
         flex: 2,
-        paddingTop: 40,
+        paddingTop: 20,
     },
     tagText:{
-        fontSize: 14,
+        fontSize: 11,
     },
     title: {
         fontSize: 30,
