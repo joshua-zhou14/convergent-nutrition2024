@@ -1,37 +1,7 @@
-// import { StyleSheet, Text, View, SafeAreaView, Platform, FlatList, Image, Pressable} from 'react-native';
-// import React, { useState, useEffect } from 'react';
-// import Ionicons from 'react-native-vector-icons/Ionicons';
-
-// import colors from '../../../config/colors.js';
-
-// export default function Schedule({ route, navigation }) { 
-//     const {name} = route.params;
-//     return (
-//         <SafeAreaView style={styles.SAVcontainer}>
-//             <Text>Schedule a meeting with {name}</Text>
-//             {/* horizontal flatlist of flatlists? The horizontal one are the dates */}
-//             <FlatList>
-//                 {/* flatlist of buttons with times, 
-//                     some grayed out to indicate scheduled.
-//                     When an available is pressed, it turns gray 
-//                     and add a message saying meeting scheduled for #### am/pm? */}
-//             </FlatList>
-//         </SafeAreaView>
-//     );
-// }
-
-// const styles = StyleSheet.create({
-//     SAVcontainer: {
-//         height: '100%',
-//         width: '100%',
-//         backgroundColor: colors.primary,
-//     },
-// });
-
-
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, Pressable } from 'react-native';
 import colors from '../../../config/colors.js';
+import { Ionicons } from '@expo/vector-icons';
 
 const datesData = [
   { id: '1', date: 'May 01', times: ['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'] },
@@ -65,14 +35,22 @@ export default function Schedule({ route, navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.buttonContainer}>
+          <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons name="arrow-back-outline" size={30} color='white'></Ionicons>
+          </Pressable>   
+      </View>
       <Text style={styles.headerText}>Schedule a meeting with {name}</Text>
-      <FlatList
-        data={datesData}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item) => item.id}
-        renderItem={renderDateItem}
-      />
+      <View style={styles.datesView}>
+        <FlatList
+            data={datesData}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => item.id}
+            renderItem={renderDateItem}
+        />
+      </View>
+      
       <FlatList
         data={selectedDate ? datesData.find((item) => item.id === selectedDate).times : []}
         keyExtractor={(item, index) => `${selectedDate}-${index}`} // Unique keys
@@ -83,16 +61,25 @@ export default function Schedule({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+    buttonContainer: {
+        position: 'absolute',
+        top: 50,
+        left: 20,
+    },
+    container: {
     flex: 1,
     backgroundColor: colors.primary,
     paddingHorizontal: 20,
     paddingTop: 20,
+    alignItems: 'center',
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: 'bold',
     marginBottom: 20,
+    marginTop: 40,
+    textAlign: 'left',
+    marginLeft: 9,
     color: 'white',
   },
   dateItem: {
@@ -101,13 +88,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 10,
     borderWidth: 1,
-    borderColor: 'white',
+    // borderColor: 'white',
+    flex: 1,
+    minWidth: 100,
+    backgroundColor: colors.secondary,
   },
   selectedDateItem: {
     backgroundColor: 'white',
   },
   dateText: {
-    color: 'white',
+    // color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  datesView: {
+    flex: 0.25,
+    maxHeight: 50,
+    width: '90%',
   },
   timeItem: {
     backgroundColor: 'white',
