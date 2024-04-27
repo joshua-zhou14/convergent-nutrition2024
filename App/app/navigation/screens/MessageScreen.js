@@ -16,7 +16,7 @@ export default function MessageScreen() {
 
   return (
     <View>
-      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 10 }}>Messaging</Text>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 650 }}>Messaging</Text>
       <MessageList messages={messages} />
       <MessageInput onSendMessage={handleSendMessage} />
     </View>
