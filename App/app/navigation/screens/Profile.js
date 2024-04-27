@@ -44,7 +44,7 @@ export default function Profile({route, navigation}){
                     <Ionicons name="arrow-back-outline" size={30} color='white'></Ionicons>
                 </Pressable>   
             </View>
-            <Image style={styles.profileimg} source={require('../../assets/temp2.jpg')}></Image>
+            <Image style={styles.profileimg} source={require('../../assets/temp8.jpg')}></Image>
             <Text style={styles.profileTxtHead}>@{profilename}</Text>
             <View style={styles.bioContainer}>
                 <Text style={styles.bioText}>I am an amazing Volleyball player who would've been D1 but got injured</Text>
