@@ -51,7 +51,7 @@ export default function MainContainer() {
             if (rn == Explore) {
               iconName = focused ? 'home' : 'home-outline';
             } else if (rn == Profile) {
-              iconName = focused ? 'settings' : 'settings-outline';
+              iconName = focused ? 'person-circle' : 'person-circle-outline';
             }
             else if(rn == Media){
               iconName = focused? 'play': 'play-outline';
