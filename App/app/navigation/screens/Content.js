@@ -12,7 +12,9 @@ export default function VideoScreen() {
     const videos = [
         { id: '1', video: require('../../assets/vballspike.mp4'), profilePicture: require('../../assets/temp1.jpg'), bio: 'Greg was nice today. What a crazy spike. Im Him lol', profileName: 'John Doe'},
         { id: '2', video: require('../../assets/hazard.mp4'), profilePicture: require('../../assets/temp2.jpg'), bio: 'Soccer == Football, no arguments. Look at that control', profileName: 'EdenHazard'},
-        { id: '3', video: require('../../assets/airball.mp4'), profilePicture: require('../../assets/temp1.jpg'), bio: 'Damn I suck at basketball someone help me plz needa coach hella bad', profileName: 'John Doe'},
+        { id: '3', video: require('../../assets/airball.mp4'), profilePicture: require('../../assets/temp3.jpg'), bio: 'Damn I suck at basketball someone help me plz needa coach hella bad', profileName: 'The Baller'},
+        { id: '4', video: require('../../assets/spike.mp4'), profilePicture: require('../../assets/temp5.jpg'), bio: 'Casual spike at 75 years old. The local YMCA better watch out', profileName: 'Old Yeller'},
+        { id: '5', video: require('../../assets/block.mp4'), profilePicture: require('../../assets/temp2.jpg'), bio: 'Call me Bob the Builder the way I built a roof over his head', profileName: 'Big Blocka'},
         // Add more video objects here...
     ];
 

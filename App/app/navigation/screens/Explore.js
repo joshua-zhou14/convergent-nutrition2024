@@ -45,13 +45,13 @@ export default function Explore({navigation}) {
     const coaches = [
         {
             id: '1',
-            name: 'Rikhil Kalidindi',
+            name: 'Jeffrey Seymour',
             description: 'I have no experience',
             img: '../assets/temp1.jpg',
         },
         {
             id: '2',
-            name: 'Rikky Dindikal',
+            name: 'Rikhil Kalidindi',
             description: 'I hate Rikhil Kalidindi',
             img: '../assets/temp2.jpg',
         },
@@ -85,38 +85,16 @@ export default function Explore({navigation}) {
             description: 'I am related to Kikhil. I also hate Rikhil Kalidindi.',
             img: '../assets/temp1.jpg',
         },
-        {
-            id: '8',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '9',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '10',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
-        {
-            id: '11',
-            name: 'Kikhil Ralidindi',
-            description: 'I am related to Dikhil. I secretly love Rikhil Kalidindi, but I will never tell him.',
-            img: '../assets/temp2.jpg',
-        },
     ];
-    
-    const Item = ({name, description, bio}) => (
+    const requirement = (id) =>{
+        if(id == 1){return require('../../assets/temp1.jpg');} else if(id == 2){return require('../../assets/temp2.jpg')} else if(id == 3){return require('../../assets/temp3.jpg')} else if(id == 4){return require('../../assets/temp4.jpg')} else if(id == 5){return require('../../assets/temp5.jpg')} else if(id == 6){return require('../../assets/temp6.jpg')} else{return require('../../assets/temp7.jpg')}
+    }
+    const Item = ({name, img, description, bio, id}) => (
         <View style={styles.eachCoach}>
-            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name})} style={{borderRightColor: 'black', borderRightWidth: 2}}>
-                <Image style={styles.image} source={require('../../assets/temp2.jpg')}/>
+            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name, bio: bio, id: id})} style={{borderRightColor: 'black', borderRightWidth: 2}}>
+                <Image style={styles.image} source={requirement(id)}/>
             </Pressable>
-            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name, bio: bio})}>
+            <Pressable onPress={() => navigation.navigate('ExploreProfile', {profilename: name, bio: bio, id : id})}>
                 <View style={styles.coachText}>
                     <Text style={styles.coachTitle}>{name}</Text>
                     <Text textWrap = "on" style={styles.coachDescription}>{description}</Text>
@@ -177,7 +155,7 @@ export default function Explore({navigation}) {
                 <View style={styles.findCoachListView}>
                     <FlatList 
                         data={coaches}
-                        renderItem={({item}) => <Item name={item.name} description={item.description} img={item.pfp} bio={item.bio} />}
+                        renderItem={({item}) => <Item name={item.name} description={item.description} img={item.pfp} bio={item.bio} id={item.id} />}
                         keyExtractor={item => item.id}
                         style={styles.flatlist}
                     />

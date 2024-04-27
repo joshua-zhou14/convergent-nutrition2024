@@ -13,19 +13,19 @@ export default function Profile({route, navigation}){
     // Sample data for the FlatList
     const data = [
         { id: '1', name: 'Item 1', video: require('../../assets/vballspike.mp4') },
-        { id: '2', name: 'Item 2', video: require('../../assets/vballspike.mp4') },
-        { id: '3', name: 'Item 3', video: require('../../assets/vballspike.mp4') },
-        { id: '4', name: 'Item 4', video: require('../../assets/vballspike.mp4') },
-        { id: '5', name: 'Item 5', video: require('../../assets/vballspike.mp4') },
-        { id: '6', name: 'Item 6', video: require('../../assets/vballspike.mp4') },
-        { id: '7', name: 'Item 7', video: require('../../assets/vballspike.mp4') },
-        { id: '8', name: 'Item 8', video: require('../../assets/vballspike.mp4') },
-        { id: '9', name: 'Item 9', video: require('../../assets/vballspike.mp4') },
+        { id: '2', name: 'Item 2', video: require('../../assets/spike2.mp4') },
+        { id: '3', name: 'Item 3', video: require('../../assets/airball.mp4') },
+        { id: '4', name: 'Item 4', video: require('../../assets/pass3.mp4') },
+        { id: '5', name: 'Item 5', video: require('../../assets/serve.mp4') },
+        { id: '6', name: 'Item 6', video: require('../../assets/spike.mp4') },
+        { id: '7', name: 'Item 7', video: require('../../assets/block.mp4') },
+        { id: '8', name: 'Item 8', video: require('../../assets/block3.mp4') },
+        { id: '9', name: 'Item 9', video: require('../../assets/hazard.mp4') },
         // Add more items as needed
     ];
 
     // Function to render each item in the FlatList
-    const renderItem = ({ item }) => (
+    const renderItem = ({ item}) => (
         <View style={styles.item}>
             <Pressable onPress={() => navigation.navigate('OneVideoScreen')}>
                 <Video

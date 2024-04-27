@@ -42,7 +42,8 @@ export default function VideoOverlayExample({navigation}) {
     return (
         <View style={styles.container}>
             <Video
-                source={require('../../assets/vballspike.mp4')}
+                source={require('../../assets/spike.mp4')}
+                // source={video}
                 shouldPlay
                 isLooping
                 onPlaybackStatusUpdate={handlePlaybackStatusUpdate}

@@ -8,20 +8,20 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 const windowWidth = Dimensions.get('window').width;
 
 export default function Profile({ route, navigation }) {
-    const { profilename, bio } = route.params;
+    const { profilename, bio, id } = route.params;
     const [buttonText, setButtonText] = useState("Sync");
     const [buttonColor, setButtonColor] = useState("#7CA0FF");
     // Sample data for the FlatList
     const data = [
-        { id: '1', name: 'Item 1', video: require('../../assets/vballspike.mp4') },
-        { id: '2', name: 'Item 2', video: require('../../assets/vballspike.mp4') },
-        { id: '3', name: 'Item 3', video: require('../../assets/vballspike.mp4') },
-        { id: '4', name: 'Item 4', video: require('../../assets/vballspike.mp4') },
-        { id: '5', name: 'Item 5', video: require('../../assets/vballspike.mp4') },
+        { id: '1', name: 'Item 1', video: require('../../assets/spike.mp4') },
+        { id: '2', name: 'Item 2', video: require('../../assets/serve.mp4') },
+        { id: '3', name: 'Item 3', video: require('../../assets/pass.mp4') },
+        { id: '4', name: 'Item 4', video: require('../../assets/pass2.mp4') },
+        { id: '5', name: 'Item 5', video: require('../../assets/block3.mp4') },
         { id: '6', name: 'Item 6', video: require('../../assets/vballspike.mp4') },
-        { id: '7', name: 'Item 7', video: require('../../assets/vballspike.mp4') },
-        { id: '8', name: 'Item 8', video: require('../../assets/vballspike.mp4') },
-        { id: '9', name: 'Item 9', video: require('../../assets/vballspike.mp4') },
+        { id: '7', name: 'Item 7', video: require('../../assets/spike2.mp4') },
+        { id: '8', name: 'Item 8', video: require('../../assets/block2.mp4') },
+        { id: '9', name: 'Item 9', video: require('../../assets/pass4.mp4') },
         // Add more items as needed
     ];
 
@@ -50,6 +50,10 @@ export default function Profile({ route, navigation }) {
         }
     }
 
+    const requirement = (id) =>{
+        if(id == 1){return require('../../assets/temp1.jpg');} else if(id == 2){return require('../../assets/temp2.jpg')} else if(id == 3){return require('../../assets/temp3.jpg')} else if(id == 4){return require('../../assets/temp4.jpg')} else if(id == 5){return require('../../assets/temp5.jpg')} else if(id == 6){return require('../../assets/temp6.jpg')} else{return require('../../assets/temp7.jpg')}
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.buttonContainer}>
@@ -57,7 +61,7 @@ export default function Profile({ route, navigation }) {
                     <Ionicons name="arrow-back-outline" size={30} color='white'></Ionicons>
                 </Pressable>   
             </View>
-            <Image style={styles.profileimg} source={require('../../assets/temp2.jpg')}></Image>
+            <Image style={styles.profileimg} source={requirement(id)}></Image>
             <Text style={styles.profileTxtHead}>@{profilename}</Text>
             <View style={styles.bioContainer}>
                 <Text style={styles.bioText}>{bio}</Text>
